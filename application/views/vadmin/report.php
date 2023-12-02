@@ -55,36 +55,39 @@ $months = [
                             <div class="col-6 text-end">
                                 <a onclick="return ExcellentExport.excel(this, 'table-spd', 'spd.xls');" class="btn btn-success"><i class="mdi mdi-file-excel"></i>Excel</a>
                             </div>
-
-
+                        </div>
+                        <div class="table-responsive">
+                        <table id="table-spd" class="table table-hover">
+                            <tr>
+                                <th>No</th>
+                                <th>Pemberi</th>
+                                <th>Penerima</th>
+                                <th>Berangkat</th>
+                                <th>Bertugas</th>
+                                <th>Urusan</th>
+                                <th>Transportasi</th>
+                                <th>Tanggal</th>
+                                <th>Kembali</th>
+                            </tr>
+                            <?php $no = 1;
+                            foreach ($spd as $row) : ?>
+                                <tr>
+                                    <td><?= $no ?></td>
+                                    <td><?= $row->spd_pemberi ?></td>
+                                    <td><?= $row->spd_penerima ?></td>
+                                    <td><?= $row->berangkat ?></td>
+                                    <td><?= $row->bertugas ?></td>
+                                    <td><?= $row->urusan ?></td>
+                                    <td><?= $row->transportasi ?></td>
+                                    <td><?= $row->tanggal ?></td>
+                                    <td><?= $row->kembali ?></td>
+                                </tr>
+                            <?php $no++;
+                            endforeach ?>
+                        </table>
                         </div>
 
-                        <table id="table-spd" class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Pemberi</th>
-                                    <th>Penerima</th>
-                                    <th>Urusan</th>
-                                    <th>Tanggal</th>
-                                    <th>Kembali</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php $no = 1;
-                                foreach ($spd as $row) : ?>
-                                    <tr>
-                                        <td><?= $no ?></td>
-                                        <td><?= $row->spd_pemberi ?></td>
-                                        <td><?= $row->spd_penerima ?></td>
-                                        <td><?= $row->urusan ?></td>
-                                        <td><?= $row->tanggal ?></td>
-                                        <td><?= $row->kembali ?></td>
-                                    </tr>
-                                <?php $no++;
-                                endforeach ?>
-                            </tbody>
-                        </table>
+                       
                     </div>
                 </div>
 
@@ -110,28 +113,24 @@ $months = [
                         </div>
 
                         <table id="table-cuti" class="table table-hover">
-                            <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>User</th>
+                                <th>Keterangan</th>
+                                <th>Tgl Awal</th>
+                                <th>Tgl Akhir</th>
+                            </tr>
+                            <?php $no = 1;
+                            foreach ($cuti as $c) : ?>
                                 <tr>
-                                    <th>No</th>
-                                    <th>User</th>
-                                    <th>Keterangan</th>
-                                    <th>Tgl Awal</th>
-                                    <th>Tgl Akhir</th>
+                                    <td><?= $no ?></td>
+                                    <td><?= $c->user_cuti ?></td>
+                                    <td><?= $c->keterangan ?></td>
+                                    <td><?= $c->tgl_awal ?></td>
+                                    <td><?= $c->tgl_akhir ?></td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <?php $no = 1;
-                                foreach ($cuti as $c) : ?>
-                                    <tr>
-                                        <td><?= $no ?></td>
-                                        <td><?= $c->user_cuti ?></td>
-                                        <td><?= $c->keterangan ?></td>
-                                        <td><?= $c->tgl_awal ?></td>
-                                        <td><?= $c->tgl_akhir ?></td>
-                                    </tr>
-                                <?php $no++;
-                                endforeach ?>
-                            </tbody>
+                            <?php $no++;
+                            endforeach ?>
                         </table>
                     </div>
                 </div>
